@@ -60,7 +60,7 @@ def save_product():
     if not 'price' in product:
         return abort(400, "Product must include price")
     #validate price is float or integer, not a string, etc, before comparing with a number, or will crash
-    if isinstance(product["price"], float) and not isinstance(product["price"], int):
+    if not isinstance(product["price"], float) and not isinstance(product["price"], int):
         return abort(400, "Price should be a number")
     #needs price > 0
     if product["price"] <= 0:
